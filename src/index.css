@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════════════════════
+   I ❤️ PULO — Cinematic Civic Identity
+   Design tokens: clarity, warmth, trust, readability
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Palette — Barangay Pulo (exact) */
+  --color-coral: #F63049;
+  --color-coral-soft: #fa7a8a;
+  --color-coral-glow: rgba(246, 48, 73, 0.35);
+  --color-rose: #D02752;
+  --color-rose-soft: #e85a7a;
+  --color-plum: #8A244B;
+  --color-plum-soft: #a83d6a;
+  --color-plum-muted: rgba(138, 36, 75, 0.25);
+  --color-navy: #1a2d4a;
+  --color-navy-soft: #2d3f5c;
+  --color-navy-deep: #111F35;
+
+  /* Surfaces & glass */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 4px 24px rgba(17, 31, 53, 0.12);
+  --shadow-elevated: 0 12px 40px rgba(17, 31, 53, 0.18);
+
+  /* Motion — elegant, consistent */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-slow: 1.2s;
+  --duration-mid: 0.6s;
+  --duration-fast: 0.35s;
+
+  /* Spacing — large, clean */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 8rem;
+
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light;
+  color: var(--color-navy-deep);
+  background-color: #faf9f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-navy-soft);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-in-out-smooth);
+}
+a:hover {
+  color: var(--color-coral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-slow: 0.01ms;
+    --duration-mid: 0.01ms;
+    --duration-fast: 0.01ms;
+  }
+}
