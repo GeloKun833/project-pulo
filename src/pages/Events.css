@@ -139,6 +139,14 @@
   text-decoration: underline;
 }
 
+.events-featured__read-more--btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
 /* ─── Past Events ─── */
 .events-past__title {
   margin: 0 0 var(--space-xl);
@@ -216,8 +224,24 @@
 }
 
 .events-past__card-info {
-  margin: 0 var(--space-md) var(--space-md);
+  margin: 0 var(--space-md) var(--space-sm);
   font-size: 0.85rem;
   color: var(--color-navy-soft);
   line-height: 1.5;
+}
+
+.events-past__read-more {
+  display: inline-block;
+  margin: 0 var(--space-md) var(--space-md);
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-coral);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.events-past__read-more:hover {
+  text-decoration: underline;
 }

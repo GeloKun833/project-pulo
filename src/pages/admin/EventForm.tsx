@@ -1,0 +1,136 @@
+import type { FormEvent } from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap'
+import { Cropper, type ReactCropperElement } from 'react-cropper'
+import 'cropperjs/dist/cropper.css'
+
+type Props = {
+  category: string
+  title: string
+  subtitle: string
+  details: string
+  location: string
+  startAt: string
+  endAt: string
+  cropperRef: React.RefObject<ReactCropperElement | null>
+  imagePreview: string | null
+  onCategoryChange: (v: string) => void
+  onTitleChange: (v: string) => void
+  onSubtitleChange: (v: string) => void
+  onDetailsChange: (v: string) => void
+  onLocationChange: (v: string) => void
+  onStartAtChange: (v: string) => void
+  onEndAtChange: (v: string) => void
+  onFileChange: (file: File | null) => void
+  onSubmit: (e: FormEvent) => void
+  submitLabel: string
+  submitting: boolean
+}
+
+export default function EventForm({
+  category,
+  title,
+  subtitle,
+  details,
+  location,
+  startAt,
+  endAt,
+  cropperRef,
+  imagePreview,
+  onCategoryChange,
+  onTitleChange,
+  onSubtitleChange,
+  onDetailsChange,
+  onLocationChange,
+  onStartAtChange,
+  onEndAtChange,
+  onFileChange,
+  onSubmit,
+  submitLabel,
+  submitting,
+}: Props) {
+  const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onFileChange(e.target.files?.[0] ?? null)
+  }
+
+  return (
+    <Form onSubmit={onSubmit}>
+      <Row className="mb-3">
+        <Col md={6}>
+          <Form.Group className="mb-3" controlId="event_category">
+            <Form.Label>Category</Form.Label>
+            <Form.Control type="text" value={category} onChange={(e) => onCategoryChange(e.target.value)} />
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Form.Group className="mb-3" controlId="event_location">
+            <Form.Label>Location</Form.Label>
+            <Form.Control type="text" value={location} onChange={(e) => onLocationChange(e.target.value)} />
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Form.Group className="mb-3" controlId="event_title">
+        <Form.Label>Title</Form.Label>
+        <Form.Control type="text" value={title} onChange={(e) => onTitleChange(e.target.value)} required />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="event_subtitle">
+        <Form.Label>Subtitle</Form.Label>
+        <Form.Control type="text" value={subtitle} onChange={(e) => onSubtitleChange(e.target.value)} />
+      </Form.Group>
+
+      <Row className="mb-3">
+        <Col md={6}>
+          <Form.Group className="mb-3" controlId="event_start">
+            <Form.Label>Start</Form.Label>
+            <Form.Control type="datetime-local" value={startAt} onChange={(e) => onStartAtChange(e.target.value)} />
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Form.Group className="mb-3" controlId="event_end">
+            <Form.Label>End</Form.Label>
+            <Form.Control type="datetime-local" value={endAt} onChange={(e) => onEndAtChange(e.target.value)} />
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Form.Group className="mb-3" controlId="event_details">
+        <Form.Label>Details</Form.Label>
+        <Form.Control as="textarea" rows={7} value={details} onChange={(e) => onDetailsChange(e.target.value)} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="event_image">
+        <Form.Label>Image</Form.Label>
+        <Form.Control type="file" accept="image/*" onChange={handleFileInput} />
+        <Form.Text className="text-muted">Optional. Choose an image to preview and crop before saving.</Form.Text>
+      </Form.Group>
+      {imagePreview && (
+        <div className="mb-3">
+          <p className="mb-1">Image preview &amp; crop</p>
+          <Cropper
+            src={imagePreview}
+            style={{ height: 240, width: '100%' }}
+            aspectRatio={16 / 9}
+            guides
+            ref={cropperRef}
+            viewMode={1}
+            dragMode="move"
+            scalable
+            zoomable
+            autoCropArea={1}
+            background={false}
+            responsive
+            checkOrientation={false}
+          />
+        </div>
+      )}
+
+      <div className="d-grid d-md-flex justify-content-md-end">
+        <Button type="submit" variant="primary" disabled={submitting}>
+          {submitting ? 'Saving…' : submitLabel}
+        </Button>
+      </div>
+    </Form>
+  )
+}
+

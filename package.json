@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "api": "php -S localhost:8000",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -12,7 +13,11 @@
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "bootstrap": "^5.3.3",
+    "react-cropper": "^2.3.3",
+    "cropperjs": "^1.6.2",
+    "react-bootstrap": "^2.10.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
