@@ -1,75 +1,59 @@
-# React + TypeScript + Vite
+# Barangay Pulo — Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Commands your partner needs to run to get the system working.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Node.js** (v18+)
+- **PHP** (8.x) with extensions: `pdo_sqlite`, `json`, `mbstring`, `fileinfo`
 
-## React Compiler
+## 1. Install dependencies
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 2. Set up the database (first time only)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+From the project root:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+php api/init_db.php
 ```
+
+Then create the admin user (login: **pulo** / **pulo**):
+
+```bash
+php api/create_admin.php
+```
+
+## 3. Run the app (two terminals)
+
+**Terminal 1 — PHP API** (must run from project root):
+
+```bash
+npm run api
+```
+
+Or:
+
+```bash
+php -S localhost:8000
+```
+
+**Terminal 2 — Frontend:**
+
+```bash
+npm run dev
+```
+
+## 4. Open the app
+
+- **Main site:** http://localhost:5173  
+- **Admin login:** http://localhost:5173/admin/login  
+  - Username: `pulo`  
+  - Password: `pulo`
+
+---
+
+**Summary:** Run `npm run api` in one terminal and `npm run dev` in another. Use the site at **http://localhost:5173**.
