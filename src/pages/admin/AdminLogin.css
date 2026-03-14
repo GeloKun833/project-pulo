@@ -1,0 +1,150 @@
+/* Admin login page — same palette, Quicksand applied to all */
+
+.admin-login-page,
+.admin-login-page * {
+  font-family: 'Quicksand', system-ui, sans-serif !important;
+}
+
+.admin-login-page {
+  --admin-font: 'Quicksand', system-ui, sans-serif;
+  --admin-bg: #F8FAFC;
+  --admin-accent: var(--color-coral, #F63049);
+  --admin-text: var(--color-navy-deep);
+  --admin-text-muted: var(--color-navy-soft);
+  --admin-border: rgba(17, 31, 53, 0.12);
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  /* Gradient using project palette: soft coral/rose tint (top-left) fading to page background */
+  background: linear-gradient(
+    to bottom right,
+    rgba(250, 122, 138, 0.18) 0%,
+    rgba(250, 122, 138, 0.06) 40%,
+    rgba(248, 250, 252, 0.4) 70%,
+    #F8FAFC 100%
+  );
+  font-weight: 400;
+}
+
+.admin-login-page .admin-login-card {
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--admin-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(17, 31, 53, 0.12);
+  padding: 2rem 2rem 2.25rem;
+}
+
+.admin-login-page .admin-login-title {
+  font-family: var(--admin-font);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--admin-text);
+  text-align: center;
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.admin-login-page .admin-login-subtitle {
+  font-family: var(--admin-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--admin-text-muted);
+  text-align: center;
+  margin: 0 0 1.75rem;
+}
+
+.admin-login-page .form-label {
+  font-family: var(--admin-font);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--admin-text);
+  margin-bottom: 0.35rem;
+}
+
+.admin-login-page .form-control {
+  font-family: var(--admin-font);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  padding: 0.6rem 0.875rem;
+  border-radius: 10px;
+  border: 1px solid var(--admin-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-login-page .form-control:focus {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px rgba(246, 48, 73, 0.15);
+}
+
+.admin-login-password-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.admin-login-password-wrap .admin-login-password-input {
+  padding-right: 2.75rem;
+}
+
+.admin-login-password-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--admin-text-muted);
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.admin-login-password-toggle:hover {
+  color: var(--admin-accent);
+  background: rgba(17, 31, 53, 0.04);
+}
+
+.admin-login-page .btn-primary {
+  font-family: var(--admin-font);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.admin-login-page .btn-primary:hover {
+  background: var(--color-rose, #D02752);
+  border-color: var(--color-rose);
+  opacity: 0.98;
+}
+
+.admin-login-page .alert {
+  font-family: var(--admin-font);
+  font-weight: 500;
+  border-radius: 12px;
+  border: 1px solid rgba(246, 48, 73, 0.2);
+  background: rgba(246, 48, 73, 0.08);
+  color: var(--color-rose);
+}
+
+.admin-login-page .alert-danger {
+  background: rgba(246, 48, 73, 0.08);
+  color: var(--color-rose);
+  border-color: rgba(246, 48, 73, 0.2);
+}

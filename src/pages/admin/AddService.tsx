@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react'
 import { Alert } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import type { ReactCropperElement } from 'react-cropper'
 import ServiceForm from './ServiceForm'
 import { addService } from './apiClient'
@@ -64,12 +65,17 @@ export default function AddService() {
 
   return (
     <div>
-      <h2 className="mb-3">Add Service</h2>
+      <Link to="/admin/services" className="admin-back-link mb-3">
+        <ArrowLeft size={18} aria-hidden />
+        Back to Services
+      </Link>
+      <h2 className="admin-page__title mb-3">Add Service</h2>
       {error && (
         <Alert variant="danger" className="mb-3">
           {error}
         </Alert>
       )}
+      <div className="admin-form-card">
       <ServiceForm
         title={title}
         description={description}
@@ -82,6 +88,7 @@ export default function AddService() {
         submitLabel="Create service"
         submitting={submitting}
       />
+      </div>
     </div>
   )
 }

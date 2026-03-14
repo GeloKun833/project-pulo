@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Alert, Spinner } from 'react-bootstrap'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import type { ReactCropperElement } from 'react-cropper'
 import AnnouncementForm from './AnnouncementForm'
 import { editAnnouncement, fetchAnnouncement } from './apiClient'
@@ -107,26 +108,32 @@ export default function EditAnnouncement() {
 
   return (
     <div>
-      <h2 className="mb-3">Edit Announcement</h2>
+      <Link to="/admin/announcements" className="admin-back-link mb-3">
+        <ArrowLeft size={18} aria-hidden />
+        Back to Announcements
+      </Link>
+      <h2 className="admin-page__title mb-3">Edit Announcement</h2>
       {error && (
         <Alert variant="danger" className="mb-3">
           {error}
         </Alert>
       )}
-      <AnnouncementForm
-        title={title}
-        description={description}
-        datePosted={datePosted}
-        cropperRef={cropperRef}
-        imagePreview={imagePreview}
-        onTitleChange={setTitle}
-        onDescriptionChange={setDescription}
-        onDatePostedChange={setDatePosted}
-        onFileChange={handleFileChange}
-        onSubmit={handleSubmit}
-        submitLabel="Save changes"
-        submitting={submitting}
-      />
+      <div className="admin-form-card">
+        <AnnouncementForm
+          title={title}
+          description={description}
+          datePosted={datePosted}
+          cropperRef={cropperRef}
+          imagePreview={imagePreview}
+          onTitleChange={setTitle}
+          onDescriptionChange={setDescription}
+          onDatePostedChange={setDatePosted}
+          onFileChange={handleFileChange}
+          onSubmit={handleSubmit}
+          submitLabel="Save changes"
+          submitting={submitting}
+        />
+      </div>
     </div>
   )
 }

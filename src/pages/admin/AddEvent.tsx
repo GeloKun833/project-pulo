@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react'
 import { Alert } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import type { ReactCropperElement } from 'react-cropper'
 import EventForm from './EventForm'
 import { addEvent } from './apiClient'
@@ -79,12 +80,17 @@ export default function AddEvent() {
 
   return (
     <div>
-      <h2 className="mb-3">Add Event</h2>
+      <Link to="/admin/events" className="admin-back-link mb-3">
+        <ArrowLeft size={18} aria-hidden />
+        Back to Events
+      </Link>
+      <h2 className="admin-page__title mb-3">Add Event</h2>
       {error && (
         <Alert variant="danger" className="mb-3">
           {error}
         </Alert>
       )}
+      <div className="admin-form-card">
       <EventForm
         category={category}
         title={title}
@@ -107,6 +113,7 @@ export default function AddEvent() {
         submitLabel="Create event"
         submitting={submitting}
       />
+      </div>
     </div>
   )
 }

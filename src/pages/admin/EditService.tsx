@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Alert, Spinner } from 'react-bootstrap'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import type { ReactCropperElement } from 'react-cropper'
 import ServiceForm from './ServiceForm'
 import { editService, fetchService } from './apiClient'
@@ -90,31 +91,42 @@ export default function EditService() {
     }
   }
 
-  if (loading) return <Spinner animation="border" />
+  if (loading) return (
+    <div className="admin-loading">
+      <Spinner animation="border" />
+      <span>Loading service…</span>
+    </div>
+  )
   if (!initial) return <Alert variant="danger">Service not found.</Alert>
 
   const displayPreview = imagePreview ?? (initial.image ? `/uploads/${initial.image}` : null)
 
   return (
     <div>
-      <h2 className="mb-3">Edit Service</h2>
+      <Link to="/admin/services" className="admin-back-link mb-3">
+        <ArrowLeft size={18} aria-hidden />
+        Back to Services
+      </Link>
+      <h2 className="admin-page__title mb-3">Edit Service</h2>
       {error && (
         <Alert variant="danger" className="mb-3">
           {error}
         </Alert>
       )}
-      <ServiceForm
-        title={title}
-        description={description}
-        cropperRef={cropperRef}
-        imagePreview={displayPreview}
-        onTitleChange={setTitle}
-        onDescriptionChange={setDescription}
-        onFileChange={handleFileChange}
-        onSubmit={handleSubmit}
-        submitLabel="Save changes"
-        submitting={submitting}
-      />
+      <div className="admin-form-card">
+        <ServiceForm
+          title={title}
+          description={description}
+          cropperRef={cropperRef}
+          imagePreview={displayPreview}
+          onTitleChange={setTitle}
+          onDescriptionChange={setDescription}
+          onFileChange={handleFileChange}
+          onSubmit={handleSubmit}
+          submitLabel="Save changes"
+          submitting={submitting}
+        />
+      </div>
     </div>
   )
 }

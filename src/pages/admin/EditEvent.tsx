@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Alert, Spinner } from 'react-bootstrap'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import type { ReactCropperElement } from 'react-cropper'
 import EventForm from './EventForm'
 import type { EventItem } from './apiClient'
@@ -122,34 +123,40 @@ export default function EditEvent() {
 
   return (
     <div>
-      <h2 className="mb-3">Edit Event</h2>
+      <Link to="/admin/events" className="admin-back-link mb-3">
+        <ArrowLeft size={18} aria-hidden />
+        Back to Events
+      </Link>
+      <h2 className="admin-page__title mb-3">Edit Event</h2>
       {error && (
         <Alert variant="danger" className="mb-3">
           {error}
         </Alert>
       )}
-      <EventForm
-        category={category}
-        title={title}
-        subtitle={subtitle}
-        details={details}
-        location={location}
-        startAt={startAt}
-        endAt={endAt}
-        cropperRef={cropperRef}
-        imagePreview={displayPreview}
-        onCategoryChange={setCategory}
-        onTitleChange={setTitle}
-        onSubtitleChange={setSubtitle}
-        onDetailsChange={setDetails}
-        onLocationChange={setLocation}
-        onStartAtChange={setStartAt}
-        onEndAtChange={setEndAt}
-        onFileChange={handleFileChange}
-        onSubmit={handleSubmit}
-        submitLabel="Save changes"
-        submitting={submitting}
-      />
+      <div className="admin-form-card">
+        <EventForm
+          category={category}
+          title={title}
+          subtitle={subtitle}
+          details={details}
+          location={location}
+          startAt={startAt}
+          endAt={endAt}
+          cropperRef={cropperRef}
+          imagePreview={displayPreview}
+          onCategoryChange={setCategory}
+          onTitleChange={setTitle}
+          onSubtitleChange={setSubtitle}
+          onDetailsChange={setDetails}
+          onLocationChange={setLocation}
+          onStartAtChange={setStartAt}
+          onEndAtChange={setEndAt}
+          onFileChange={handleFileChange}
+          onSubmit={handleSubmit}
+          submitLabel="Save changes"
+          submitting={submitting}
+        />
+      </div>
     </div>
   )
 }
