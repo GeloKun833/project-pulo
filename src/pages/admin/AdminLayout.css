@@ -12,7 +12,7 @@
   --admin-font: 'Quicksand', system-ui, sans-serif;
   --admin-bg: #F8FAFC;
   --admin-sidebar-bg: var(--color-navy-deep, #111F35);
-  --admin-accent: var(--color-coral, #F63049);
+  --admin-accent: var(--color-rose, #D02752);
   --admin-card-bg: #fff;
   --admin-border: rgba(17, 31, 53, 0.08);
   --admin-text: var(--color-navy-deep);
@@ -131,9 +131,9 @@
 }
 
 .admin-sidebar__logout:hover {
-  background: rgba(246, 48, 73, 0.22);
+  background: rgba(208, 39, 82, 0.22);
   color: #fff;
-  border-color: rgba(246, 48, 73, 0.4);
+  border-color: rgba(208, 39, 82, 0.4);
 }
 
 .admin-sidebar__nav {
@@ -205,7 +205,7 @@
 }
 
 .admin-sidebar__link--active {
-  background: rgba(246, 48, 73, 0.22);
+  background: rgba(208, 39, 82, 0.22);
   color: #fff;
   border-left-color: var(--admin-accent);
   border-radius: 0 10px 10px 0;
@@ -249,7 +249,7 @@
     justify-content: center;
   }
 
-  .admin-sidebar--collapsed .admin-sidebar__title-text {
+  .admin-sidebar--collapsed .admin-sidebar__title {
     display: none;
   }
 
@@ -344,8 +344,8 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--admin-accent);
-  background: rgba(246, 48, 73, 0.08);
-  border: 1px solid rgba(246, 48, 73, 0.15);
+  background: rgba(208, 39, 82, 0.08);
+  border: 1px solid rgba(208, 39, 82, 0.15);
   border-radius: 10px;
 }
 
@@ -464,7 +464,7 @@
 }
 
 .admin-metric-card__icon--coral {
-  background: linear-gradient(135deg, var(--admin-accent), var(--color-rose, #D02752));
+  background: linear-gradient(135deg, var(--color-rose, #D02752), var(--color-rose-soft, #e85a7a));
 }
 
 .admin-metric-card__icon--navy {
@@ -571,7 +571,7 @@
 }
 
 .admin-dashboard__section-icon--coral {
-  background: linear-gradient(135deg, var(--admin-accent), var(--color-rose, #D02752));
+  background: linear-gradient(135deg, var(--color-rose, #D02752), var(--color-rose-soft, #e85a7a));
 }
 
 .admin-dashboard__section-icon--navy {
@@ -1012,7 +1012,7 @@
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(246, 48, 73, 0.1);
+  background: rgba(208, 39, 82, 0.1);
   color: var(--admin-accent);
 }
 
@@ -1207,7 +1207,7 @@
 
 .admin-filters__input:focus {
   border-color: var(--admin-accent);
-  box-shadow: 0 0 0 2px rgba(246, 48, 73, 0.12);
+  box-shadow: 0 0 0 2px rgba(208, 39, 82, 0.12);
 }
 
 .admin-filters__dates .admin-filters__date {
@@ -1349,7 +1349,7 @@
 }
 
 .admin-list-card__icon--coral {
-  background: linear-gradient(135deg, var(--admin-accent), var(--color-rose, #D02752));
+  background: linear-gradient(135deg, var(--color-rose, #D02752), var(--color-rose-soft, #e85a7a));
 }
 
 .admin-list-card__icon--navy {
@@ -1500,8 +1500,8 @@
 
 .admin-main .btn-admin-primary:hover,
 .admin-main .btn-primary:hover {
-  background: var(--color-rose, #D02752);
-  border-color: var(--color-rose);
+  background: var(--color-rose-soft, #e85a7a);
+  border-color: var(--color-rose-soft);
   opacity: 0.95;
 }
 
@@ -1524,9 +1524,9 @@
 }
 
 .admin-main .btn-outline-primary:hover {
-  background: rgba(246, 48, 73, 0.1);
-  color: var(--color-rose);
-  border-color: var(--color-rose);
+  background: rgba(208, 39, 82, 0.1);
+  color: var(--color-rose-soft);
+  border-color: var(--color-rose-soft);
 }
 
 .admin-main .btn-outline-danger {
@@ -1597,7 +1597,7 @@
 
 .admin-main .admin-form .form-control:focus {
   border-color: var(--admin-accent);
-  box-shadow: 0 0 0 3px rgba(246, 48, 73, 0.12);
+  box-shadow: 0 0 0 3px rgba(208, 39, 82, 0.12);
 }
 
 .admin-main .admin-form .form-control::placeholder {
@@ -1768,7 +1768,7 @@
 }
 
 .admin-main .admin-table-wrap .table .admin-table-actions .btn-outline-danger:hover {
-  background: rgba(246, 48, 73, 0.1);
+  background: rgba(208, 39, 82, 0.1);
   color: var(--color-rose);
 }
 
@@ -1787,9 +1787,9 @@
 }
 
 .admin-main .alert-danger {
-  background: rgba(246, 48, 73, 0.08);
+  background: rgba(208, 39, 82, 0.08);
   color: var(--color-rose);
-  border-color: rgba(246, 48, 73, 0.2);
+  border-color: rgba(208, 39, 82, 0.2);
 }
 
 /* ─── Spinner ─── */

@@ -1923,6 +1923,41 @@
   display: block;
 }
 
+.detail-modal__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-modal__row {
+  margin-bottom: var(--space-md);
+}
+
+.detail-modal__row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-modal__term {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-navy-soft);
+  margin: 0 0 2px;
+}
+
+.detail-modal__value {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-navy-deep);
+}
+
+.detail-modal__value.detail-modal__description {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
 .detail-modal__date {
   margin: 0 0 var(--space-md);
   font-size: 0.875rem;
@@ -2909,6 +2944,14 @@
   background: #2d3548;
 }
 
+.user-layout--dark .detail-modal__term {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.user-layout--dark .detail-modal__value {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .user-layout--dark .detail-modal__date {
   color: rgba(255, 255, 255, 0.6);
 }
@@ -3017,6 +3060,11 @@
   background: #1e2430;
   border-color: #2d3548;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.user-layout--dark .events-featured__date-strip {
+  background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-soft) 100%);
+  color: #fff;
 }
 
 .user-layout--dark .events-past__title {

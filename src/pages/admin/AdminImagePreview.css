@@ -96,6 +96,6 @@
 }
 
 .admin-image-preview__close:focus {
-  outline: 2px solid var(--admin-accent, #F63049);
+  outline: 2px solid var(--admin-accent, #D02752);
   outline-offset: 2px;
 }

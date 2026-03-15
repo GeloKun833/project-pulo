@@ -8,7 +8,7 @@
 .admin-login-page {
   --admin-font: 'Quicksand', system-ui, sans-serif;
   --admin-bg: #F8FAFC;
-  --admin-accent: var(--color-coral, #F63049);
+  --admin-accent: var(--color-rose, #D02752);
   --admin-text: var(--color-navy-deep);
   --admin-text-muted: var(--color-navy-soft);
   --admin-border: rgba(17, 31, 53, 0.12);
@@ -82,7 +82,7 @@
 
 .admin-login-page .form-control:focus {
   border-color: var(--admin-accent);
-  box-shadow: 0 0 0 3px rgba(246, 48, 73, 0.15);
+  box-shadow: 0 0 0 3px rgba(208, 39, 82, 0.15);
 }
 
 .admin-login-password-wrap {
@@ -129,8 +129,8 @@
 }
 
 .admin-login-page .btn-primary:hover {
-  background: var(--color-rose, #D02752);
-  border-color: var(--color-rose);
+  background: var(--color-rose-soft, #e85a7a);
+  border-color: var(--color-rose-soft);
   opacity: 0.98;
 }
 
@@ -138,13 +138,13 @@
   font-family: var(--admin-font);
   font-weight: 500;
   border-radius: 12px;
-  border: 1px solid rgba(246, 48, 73, 0.2);
-  background: rgba(246, 48, 73, 0.08);
+  border: 1px solid rgba(208, 39, 82, 0.2);
+  background: rgba(208, 39, 82, 0.08);
   color: var(--color-rose);
 }
 
 .admin-login-page .alert-danger {
-  background: rgba(246, 48, 73, 0.08);
+  background: rgba(208, 39, 82, 0.08);
   color: var(--color-rose);
-  border-color: rgba(246, 48, 73, 0.2);
+  border-color: rgba(208, 39, 82, 0.2);
 }

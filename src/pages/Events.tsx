@@ -73,30 +73,39 @@ function EventDetailModal({
               />
             </div>
           )}
-          {event.subtitle && (
-            <p className="detail-modal__date" style={{ marginBottom: 'var(--space-sm)' }}>
-              {event.subtitle}
-            </p>
-          )}
-          {whenStr && (
-            <p className="detail-modal__date">
-              <strong>When:</strong> {whenStr}
-            </p>
-          )}
-          {event.location && (
-            <p className="detail-modal__date">
-              <strong>Where:</strong> {event.location}
-            </p>
-          )}
-          {event.category && (
-            <p className="detail-modal__date">
-              <strong>Category:</strong> {event.category}
-            </p>
-          )}
-          {event.details && (
-            <p className="detail-modal__date" style={{ marginTop: 'var(--space-md)' }}>
-              <strong>Event details:</strong> {event.details}
-            </p>
+          {(event.subtitle || whenStr || event.location || event.category || event.details) && (
+            <dl className="detail-modal__list">
+              {event.subtitle && (
+                <div className="detail-modal__row">
+                  <dt className="detail-modal__term">Subtitle</dt>
+                  <dd className="detail-modal__value">{event.subtitle}</dd>
+                </div>
+              )}
+              {whenStr && (
+                <div className="detail-modal__row">
+                  <dt className="detail-modal__term">When</dt>
+                  <dd className="detail-modal__value">{whenStr}</dd>
+                </div>
+              )}
+              {event.location && (
+                <div className="detail-modal__row">
+                  <dt className="detail-modal__term">Where</dt>
+                  <dd className="detail-modal__value">{event.location}</dd>
+                </div>
+              )}
+              {event.category && (
+                <div className="detail-modal__row">
+                  <dt className="detail-modal__term">Category</dt>
+                  <dd className="detail-modal__value">{event.category}</dd>
+                </div>
+              )}
+              {event.details && (
+                <div className="detail-modal__row">
+                  <dt className="detail-modal__term">Details</dt>
+                  <dd className="detail-modal__value">{event.details}</dd>
+                </div>
+              )}
+            </dl>
           )}
         </div>
         <div className="detail-modal__footer">
@@ -198,6 +207,19 @@ export default function Events() {
                   </button>
                 </h2>
                 <div className="events-featured__body">
+                  {(() => {
+                    const start = featured.start_at ? new Date(featured.start_at) : null
+                    return (
+                      <div className="events-featured__date-strip" aria-hidden="true">
+                        <span className="events-featured__date-day">
+                          {start ? start.getDate() : '—'}
+                        </span>
+                        <span className="events-featured__date-month">
+                          {start ? start.toLocaleDateString(undefined, { month: 'short' }) : '—'}
+                        </span>
+                      </div>
+                    )
+                  })()}
                   <button
                     type="button"
                     className="events-featured__media events-featured__media--clickable"
@@ -216,10 +238,6 @@ export default function Events() {
                     <div className="events-featured__overlay">
                       <span className="events-featured__overlay-title">{featured.title}</span>
                       <span className="events-featured__overlay-subtitle">{featured.subtitle ?? ''}</span>
-                      <span className="events-featured__overlay-meta">
-                        {formatEventDate(featured.start_at, featured.end_at)}
-                        {featured.location ? ` / ${featured.location}` : ''}
-                      </span>
                     </div>
                   </button>
                   <div className="events-featured__details">

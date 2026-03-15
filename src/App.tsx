@@ -57,12 +57,18 @@ function DetailModal({
               <img src={`/uploads/${image}`} alt="" className="detail-modal__image" />
             </div>
           )}
-          {date && (
-            <p className="detail-modal__date">
-              Posted {new Date(date).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}
-            </p>
-          )}
-          <div className="detail-modal__description">{description}</div>
+          <dl className="detail-modal__list">
+            {date && (
+              <div className="detail-modal__row">
+                <dt className="detail-modal__term">Posted</dt>
+                <dd className="detail-modal__value">{new Date(date).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</dd>
+              </div>
+            )}
+            <div className="detail-modal__row">
+              <dt className="detail-modal__term">{data.type === 'announcement' ? 'Content' : 'Description'}</dt>
+              <dd className="detail-modal__value detail-modal__description">{description}</dd>
+            </div>
+          </dl>
         </div>
         <div className="detail-modal__footer">
           <button type="button" className="detail-modal__btn" onClick={onClose}>
