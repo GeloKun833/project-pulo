@@ -1,0 +1,101 @@
+.admin-image-preview {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  width: fit-content;
+  max-width: 100%;
+  height: fit-content;
+}
+
+.admin-image-preview__thumb,
+.admin-image-preview img.admin-image-preview__thumb {
+  display: block;
+  width: 56px;
+  height: 56px;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--admin-border, rgba(17, 31, 53, 0.08));
+  vertical-align: top;
+}
+
+.admin-image-preview__btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(17, 31, 53, 0.6);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.admin-image-preview:hover .admin-image-preview__btn {
+  opacity: 1;
+}
+
+.admin-image-preview__btn:hover {
+  background: rgba(17, 31, 53, 0.75);
+}
+
+.admin-image-preview__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(17, 31, 53, 0.7);
+  cursor: pointer;
+  animation: admin-image-preview-fadeIn 0.2s ease;
+}
+
+@keyframes admin-image-preview-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.admin-image-preview__full {
+  max-width: 65vw;
+  max-height: 65vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  cursor: default;
+  background: #fff;
+}
+
+.admin-image-preview__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--admin-text, #111F35);
+  font-family: var(--admin-font, 'Quicksand', system-ui, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.admin-image-preview__close:hover {
+  background: #f0f0f0;
+  transform: scale(1.02);
+}
+
+.admin-image-preview__close:focus {
+  outline: 2px solid var(--admin-accent, #D02752);
+  outline-offset: 2px;
+}
