@@ -55,5 +55,6 @@ npm run dev
   - Password: `pulo`
 
 ---
+(all are installed when you run `npm install`)
 
 **Summary:** Run `npm run api` in one terminal and `npm run dev` in another. Use the site at **http://localhost:5173**.
